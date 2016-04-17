@@ -67,10 +67,10 @@ class GroupExcel {
         for (let i = 1; i <= sheetHeight - 1; i++) {
             for (let j = 0; j <= sheetWidth - 1; j++) {
                 this.sheet.border(j + 1, i + 1, {
-                    left: 'thick',
-                    top: 'thick',
-                    right: 'thick',
-                    bottom: 'thick'
+                    left: 'medium',
+                    top: 'medium',
+                    right: 'medium',
+                    bottom: 'medium'
                 })
                 this.sheet.height(i + 1, 21);
             }

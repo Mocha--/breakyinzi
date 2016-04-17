@@ -46,33 +46,34 @@ class GroupExcel {
         this.sheet.align(11, 2, 'center');
         this.sheet.valign(11, 2, 'center');
         this.sheet.set(12, 2, '领队');
+        this.sheet.align(12, 2, 'center');
         this.sheet.valign(12, 2, 'center');
         this.sheet.set(13, 2, '备注/夜游/HOTEL');
         this.sheet.align(13, 2, 'center');
         this.sheet.valign(13, 2, 'center');
-        this.sheet.width(1, 22);
+        this.sheet.width(1, 25);
         this.sheet.width(2, 4);
         this.sheet.width(3, 7);
-        this.sheet.width(4, 11);
+        this.sheet.width(4, 12);
         this.sheet.width(5, 4);
         this.sheet.width(6, 4);
-        this.sheet.width(7, 7.3);
-        this.sheet.width(8, 5.8);
-        this.sheet.width(9, 7.63);
-        this.sheet.width(10, 4);
-        this.sheet.width(11, 13.14);
-        this.sheet.width(12, 5.61);
-        this.sheet.width(13, 24.78);
+        this.sheet.width(7, 9);
+        this.sheet.width(8, 5);
+        this.sheet.width(9, 9);
+        this.sheet.width(10, 5);
+        this.sheet.width(11, 11);
+        this.sheet.width(12, 6);
+        this.sheet.width(13, 20);
 
         for (let i = 1; i <= sheetHeight - 1; i++) {
             for (let j = 0; j <= sheetWidth - 1; j++) {
                 this.sheet.border(j + 1, i + 1, {
-                    left: 'medium',
-                    top: 'medium',
-                    right: 'medium',
-                    bottom: 'medium'
+                    left: 'thin',
+                    top: 'thin',
+                    right: 'thin',
+                    bottom: 'thin'
                 })
-                this.sheet.height(i + 1, 21);
+                this.sheet.height(i + 1, 22);
             }
         }
 
@@ -121,7 +122,7 @@ class GroupExcel {
             if (parseInt(group.depatureFlightTime.slice(0, 2)) <= 12) {
                 this.sheet.set(6, 3 + 3 * i, parseInt(group.depatureDate) - 1);
             } else {
-                this.sheet.set(3, 3 + 3 * i, parseInt(group.depatureDate));
+                this.sheet.set(6, 3 + 3 * i, parseInt(group.depatureDate));
             }
             let colsToBeMerged = [1, 2, 6, 7, 8, 9, 10, 12, 13];
             for (let col of colsToBeMerged) {

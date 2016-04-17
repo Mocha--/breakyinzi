@@ -73,7 +73,7 @@ class GroupExcel {
                     right: 'thin',
                     bottom: 'thin'
                 })
-                this.sheet.height(i + 1, 22);
+                this.sheet.height(i + 1, 21);
             }
         }
 

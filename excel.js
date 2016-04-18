@@ -51,7 +51,7 @@ class GroupExcel {
         this.sheet.set(13, 2, '备注/夜游/HOTEL');
         this.sheet.align(13, 2, 'center');
         this.sheet.valign(13, 2, 'center');
-        this.sheet.width(1, 25);
+        this.sheet.width(1, 23);
         this.sheet.width(2, 4);
         this.sheet.width(3, 7);
         this.sheet.width(4, 12);
@@ -62,7 +62,7 @@ class GroupExcel {
         this.sheet.width(9, 9);
         this.sheet.width(10, 5);
         this.sheet.width(11, 11);
-        this.sheet.width(12, 6);
+        this.sheet.width(12, 8);
         this.sheet.width(13, 20);
 
         for (let i = 1; i <= sheetHeight - 1; i++) {
@@ -73,7 +73,7 @@ class GroupExcel {
                     right: 'thin',
                     bottom: 'thin'
                 })
-                this.sheet.height(i + 1, 21.5);
+                this.sheet.height(i + 1, 21);
             }
         }
 
@@ -88,6 +88,7 @@ class GroupExcel {
                 bold: true
             });
             this.sheet.align(1, 3 + 3 * i, 'center');
+            this.sheet.wrap(1, 3 + 3 * i, 'true');
             this.sheet.set(2, 3 + 3 * i, group.touristNum);
             this.sheet.align(2, 3 + 3 * i, 'center');
             this.sheet.merge({

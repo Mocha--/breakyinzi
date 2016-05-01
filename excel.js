@@ -7,7 +7,7 @@ class GroupExcel {
     constructor(groups) {
         let sheetWidth = 13;
         let sheetHeight = groups.length * 3 + 2;
-        this.workbook = excelbuilder.createWorkbook('./', 'groupExcel.xlsx');
+        this.workbook = excelbuilder.createWorkbook('./', moment().format('DD-MM-YYYY') + '.xlsx');
         this.sheet = this.workbook.createSheet('groups', sheetWidth, sheetHeight);
         this.groups = groups;
         this.sheet.set(4, 1, '日期');

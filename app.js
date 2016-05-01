@@ -79,14 +79,14 @@ app.get('/groupTable', function(req, res) {
                             touristNum: parseInt(rowData[12]) - 1
                         }))
                     });
-                    console.log(tours);
+                    // console.log(tours);
                     cb(null, tours)
                 })
         },
         function(tours, cb) {
             let excel = new GroupExcel(tours);
             excel.save(function() {
-                res.sendFile('groupExcel.xlsx', {
+                res.sendFile(moment().format('DD-MM-YYYY') + '.xlsx', {
                         root: __dirname,
                         // dotfiles: 'allow'
                     },

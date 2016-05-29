@@ -119,6 +119,7 @@ class GroupExcel {
             }
 
             this.sheet.set(10, 3 + 3 * i, busSize);
+            this.sheet.set(11, 3 + 3 * i, '1接+');
 
             if (parseInt(group.depatureFlightTime.slice(0, 2)) <= 12) {
                 this.sheet.set(6, 3 + 3 * i, parseInt(group.depatureDate) - 1);

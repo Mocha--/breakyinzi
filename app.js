@@ -84,7 +84,7 @@ app.get('/groupTable', function(req, res) {
                 })
         },
         function(tours, cb) {
-            let excel = new GroupExcel(tours);
+            let excel = new GroupExcel(tours, startDate);
             excel.save(function() {
                 res.sendFile(moment().format('DD-MM-YYYY') + '.xlsx', {
                         root: __dirname,

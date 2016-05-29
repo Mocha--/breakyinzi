@@ -4,14 +4,14 @@ let excelbuilder = require('msexcel-builder');
 let moment = require('moment');
 
 class GroupExcel {
-    constructor(groups) {
+    constructor(groups, startDate) {
         let sheetWidth = 13;
         let sheetHeight = groups.length * 3 + 2;
         this.workbook = excelbuilder.createWorkbook('./', moment().format('DD-MM-YYYY') + '.xlsx');
         this.sheet = this.workbook.createSheet('groups', sheetWidth, sheetHeight);
         this.groups = groups;
         this.sheet.set(4, 1, '日期');
-        this.sheet.set(7, 1, moment().format('/MM/YYYY'));
+        this.sheet.set(7, 1, startDate);
         this.sheet.set(10, 1, '星期');
         this.sheet.set(1, 2, '团队代码');
         this.sheet.align(1, 2, 'center');

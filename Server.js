@@ -7,14 +7,14 @@ const server = express();
  */
 const PORT = 3000;
 
-const tableRouter = require('./Router/GroupTableRouter.js');
-const shopEnteringRouter = require('./Router/ShopEnteringTableRouter.js');
+const tourTableRouter = require('./Router/TourTableRouter.js');
+const shopEnteringTableRouter = require('./Router/ShopEnteringTableRouter.js');
 
 /**
  * apply routers
  */
-server.use(tableRouter);
-server.use(shopEnteringRouter);
+server.use(tourTableRouter);
+server.use(shopEnteringTableRouter);
 
 server.listen(PORT, () => {
     console.log(`listening ${PORT}`)

@@ -52,8 +52,9 @@ class Client {
                     }));
 
                     return new Tour({
-                        guild: rowData[0],
+                        tourGuide: rowData[0],
                         groupNumber: $(rowData[2]).html(),
+                        arriveDate: rowData[3],
                         arriveFlightNum: rowData[6],
                         arriveFlightTime: rowData[7],
                         depatureFlightNum: rowData[10],

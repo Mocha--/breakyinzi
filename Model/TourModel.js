@@ -1,9 +1,10 @@
 const moment = require('moment');
 
 class Tour {
-    constructor({guild, groupNumber, arriveFlightNum, arriveFlightTime, depatureFlightNum, depatureFlightTime, depatureDate, touristNum}) {
-        this.guild = guild;
+    constructor({tourGuide, groupNumber, arriveDate, arriveFlightNum, arriveFlightTime, depatureFlightNum, depatureFlightTime, depatureDate, touristNum}) {
+        this.tourGuide = tourGuide;
         this.groupNumber = groupNumber;
+        this.arriveDate = arriveDate;
         this.arriveFlightNum = arriveFlightNum;
         this.arriveFlightTime = arriveFlightTime;
         this.depatureFlightNum = depatureFlightNum;
@@ -13,11 +14,12 @@ class Tour {
     }
 
     get shopEnteringDate() {
-        if (parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 12) {
-            return moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD');
-        } else {
-            return moment(this.depatureDate).format('YYYY-MM-DD');
+        if (this.depatureFlightTime.trim().length >= 13) {
+            console.info(this.arriveDate);
         }
+        return this.depatureFlightTime.trim().length >= 13 ? this.arriveDate
+            : parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 12 ? moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD')
+            : moment(this.depatureDate).format('YYYY-MM-DD');
     }
 
     get busSize() {

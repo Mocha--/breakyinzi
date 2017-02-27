@@ -1,5 +1,6 @@
 const excelbuilder = require('msexcel-builder');
 const moment = require('moment');
+const THIN = 'thin';
 
 class Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight}) {
@@ -13,7 +14,7 @@ class Excel {
         verticallyAlign && this.sheet.valign(col, row, verticallyAlign);
         wrap && this.sheet.wrap(col, row, 'true');
         font && this.sheet.font(col, row, font);
-        border && this.sheet.border(col, row, border);
+        border ? this.sheet.border(col, row, border) : this.sheet.border(col, row, {top: THIN, right: THIN, bottom: THIN, left: THIN});
         mergeTo && this.sheet.merge({row, col}, {row: mergeTo.row, col: mergeTo.col});
     }
 

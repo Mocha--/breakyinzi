@@ -16,7 +16,7 @@ tableRouter
         } = req.query;
 
         const relativeDirPath = './.tmp';
-        const fileName = `ToursTables-${date || enddate}.xlsx`;
+        const fileName = `ToursTable-${date || enddate}.xlsx`;
 
         client
             .getCookie(LOGIN_URL, {

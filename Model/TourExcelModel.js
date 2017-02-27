@@ -44,10 +44,33 @@ const FIRST_DAY_TRIP_STRING = '1接+';
 class TourExcel extends Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight }) {
         super({ dirPath, fileName, sheetName, totalWidth, totalHeight });
+        this.totalHeight = totalHeight;
         this.colWidths = [23, 4, 7, 12, 4, 4, 9, 5, 9, 5, 11, 8, 20];
         this.setColsWidth();
         this.setRowsHeight();
         this.setHeader();
+    }
+
+    setColsWidth() {
+        this.colWidths.forEach((elm, idx) => {
+            this.setColWidth(idx + 1, elm);
+        });
+    }
+
+    setRowsHeight() {
+        [...Array(this.totalHeight).keys()].forEach((elm) => {
+            this.setRowHeight(elm + 1, ROW_HEIGHT);
+        });
+    }
+
+    /**
+      * date in format e.g. 01/01/2017
+      */
+    setTitle(date, weekday) {
+        this.setCell(TITLE_ROW_NUMBER, 4, DATE_STRING, {verticallyAlign: CENTER});
+        this.setCell(TITLE_ROW_NUMBER, 7, date, {verticallyAlign: CENTER});
+        this.setCell(TITLE_ROW_NUMBER, 10, WEEKDAY_STRING, {verticallyAlign: CENTER});
+        this.setCell(TITLE_ROW_NUMBER, 11, weekday, {verticallyAlign: CENTER});
     }
 
     setHeader() {
@@ -66,29 +89,6 @@ class TourExcel extends Excel {
         this.setCell(HEADER_ROW_NUMBER, 11, TOUR_PLAN_STRING, {horizontallyAlign:CENTER, verticallyAlign: CENTER});
         this.setCell(HEADER_ROW_NUMBER, 12, TOUR_LEADER_STRING, {horizontallyAlign: CENTER, verticallyAlign: CENTER});
         this.setCell(HEADER_ROW_NUMBER, 13, COMMENT_STRING, {horizontallyAlign: CENTER, verticallyAlign: CENTER});
-    }
-
-
-    /**
-      * date in format e.g. 01/01/2017
-      */
-    setTitle(date, weekday) {
-        this.setCell(TITLE_ROW_NUMBER, 4, DATE_STRING, {verticallyAlign: CENTER});
-        this.setCell(TITLE_ROW_NUMBER, 7, date, {verticallyAlign: CENTER});
-        this.setCell(TITLE_ROW_NUMBER, 10, WEEKDAY_STRING, {verticallyAlign: CENTER});
-        this.setCell(TITLE_ROW_NUMBER, 11, weekday, {verticallyAlign: CENTER});
-    }
-
-    setColsWidth() {
-        this.colWidths.forEach((elm, idx) => {
-            this.setColWidth(idx + 1, elm);
-        });
-    }
-
-    setRowsHeight() {
-        [...Array(this.height).keys()].forEach((elm) => {
-            this.setRowHeight(elm + 1, ROW_HEIGHT);
-        });
     }
 
     load(tours) {

@@ -49,6 +49,7 @@ class TourExcel extends Excel {
         this.setColsWidth();
         this.setRowsHeight();
         this.setHeader();
+        this.initBorder();
     }
 
     setColsWidth() {

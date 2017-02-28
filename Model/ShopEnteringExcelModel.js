@@ -1,6 +1,6 @@
 const Excel = require('./ExcelModel.js');
 
-const ROW_HEIGHT = 40;
+const ROW_HEIGHT = 30;
 const TITLE_ROW_NUMBER = 1;
 const HEADER_ROW_NUMBER = 2;
 const TABLE_TITLE = 'MEL 每日进店团表';
@@ -19,12 +19,12 @@ const DATE_STRING = '日期';
 const WEEKDAY_STRING = '星期';
 
 const CENTER = 'center';
+const MIN_ROW_NUM = 14;
 
 class ShopEnteringExcel extends Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight }) {
-        super({ dirPath, fileName, sheetName, totalWidth, totalHeight });
-        this.totalHeight = totalHeight;
-        this.colWidths = [4, 23, 4, 12, 8, 8, 12, 8, 8, 8];
+        super({ dirPath, fileName, sheetName, totalWidth, totalHeight: Math.max(totalHeight, MIN_ROW_NUM) });
+        this.colWidths = [6, 23, 4, 12, 8, 8, 12, 8, 8, 8];
         this.setColsWidth();
         this.setRowsHeight();
         this.setHeader();
@@ -43,7 +43,7 @@ class ShopEnteringExcel extends Excel {
     }
 
     setTitle(date, weekday) {
-        this.setCell(TITLE_ROW_NUMBER, 2, TABLE_TITLE);
+        this.setCell(TITLE_ROW_NUMBER, 2, TABLE_TITLE, {font: {sz: 24}});
         this.setCell(TITLE_ROW_NUMBER, 6, DATE_STRING);
         this.setCell(TITLE_ROW_NUMBER, 7, date);
         this.setCell(TITLE_ROW_NUMBER, 8, weekday);

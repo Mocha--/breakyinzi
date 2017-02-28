@@ -6,6 +6,25 @@ class Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight}) {
         this.workbook = excelbuilder.createWorkbook(dirPath, fileName);
         this.sheet = this.workbook.createSheet(sheetName, totalWidth, totalHeight);
+        this.totalWidth = totalWidth;
+        this.totalHeight = totalHeight;
+        this.initBorder();
+    }
+
+    initBorder() {
+        // from 2rd line
+        for(let i = 2; i <= this.totalHeight; i ++) {
+            for(let j = 1; j <= this.totalWidth; j++) {
+                this.setCell(i, j, '', {
+                    border: {
+                        top: THIN,
+                        right: THIN,
+                        bottom: THIN,
+                        left: THIN
+                    }
+                });
+            }
+        }
     }
 
     setCell(row, col, content, {horizontallyAlign, verticallyAlign, wrap, font, border, mergeTo} = {}) {
@@ -14,7 +33,7 @@ class Excel {
         verticallyAlign && this.sheet.valign(col, row, verticallyAlign);
         wrap && this.sheet.wrap(col, row, 'true');
         font && this.sheet.font(col, row, font);
-        border ? this.sheet.border(col, row, border) : this.sheet.border(col, row, {top: THIN, right: THIN, bottom: THIN, left: THIN});
+        border && this.sheet.border(col, row, border);
         mergeTo && this.sheet.merge({row, col}, {row: mergeTo.row, col: mergeTo.col});
     }
 

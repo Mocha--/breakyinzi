@@ -24,7 +24,7 @@ const MIN_ROW_NUM = 14;
 class ShopEnteringExcel extends Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight }) {
         super({ dirPath, fileName, sheetName, totalWidth, totalHeight: Math.max(totalHeight, MIN_ROW_NUM) });
-        this.colWidths = [6, 23, 4, 12, 8, 8, 12, 8, 8, 8];
+        this.colWidths = [10, 34, 7, 24, 15, 17, 24, 14, 16, 25];
         this.setColsWidth();
         this.setRowsHeight();
         this.setHeader();

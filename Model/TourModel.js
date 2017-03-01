@@ -9,12 +9,12 @@ class Tour {
         this.arriveFlightTime = arriveFlightTime;
         this.depatureFlightNum = depatureFlightNum;
         this.depatureFlightTime = depatureFlightTime;
-        this.depatureDate = depatureDate;
+        this.depatureDate = this.arriveFlightTime.trim().length >= 13 ? arriveDate : depatureDate;
         this.touristNum = touristNum;
     }
 
     get shopEnteringDate() {
-        return this.depatureFlightTime.trim().length >= 13 ? this.arriveDate
+        return this.arriveFlightTime.trim().length >= 13 ? this.arriveDate
             : parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 12 ? moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD')
             : moment(this.depatureDate).format('YYYY-MM-DD');
     }

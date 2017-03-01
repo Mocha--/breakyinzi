@@ -54,7 +54,7 @@ class Client {
                     return new Tour({
                         tourGuide: rowData[0],
                         groupNumber: $(rowData[2]).html(),
-                        arriveDate: rowData[3],
+                        arriveDate: moment(rowData[3], 'YYYY-M-DD').format('YYYY-MM-DD'),
                         arriveFlightNum: rowData[6],
                         arriveFlightTime: rowData[7],
                         depatureFlightNum: rowData[10],

@@ -37,7 +37,7 @@ tableRouter
                     totalWidth: 13,
                     totalHeight: 2 + tours.length * 3
                 });
-                tourExcel.setTitle(date || enddate, moment(date || enddate, 'YYYY-MM-DD').format('dddd'));
+                tourExcel.setTitle(moment(date || enddate).format('DD/MM/YYYY'), moment(date || enddate, 'YYYY-MM-DD').format('dddd'));
                 tourExcel.load(tours);
                 return tourExcel.save();
             })

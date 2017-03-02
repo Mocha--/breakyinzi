@@ -13,18 +13,19 @@ const TIME_STRING = '时间';
 const STOPS_STRING = '站';
 const TOUR_PLAN_STRING = '行程';
 const TOUR_LEADER_STRING = '领队';
-const PRICE_STRING = '报价';
+const PRICE_STRING = '报价单';
 const COMMENT_STRING = '备注';
 const DATE_STRING = '日期';
 const WEEKDAY_STRING = '星期';
 
 const CENTER = 'center';
+const LEFT = 'left';
 const MIN_ROW_NUM = 14;
 
 class ShopEnteringExcel extends Excel {
     constructor({ dirPath, fileName, sheetName, totalWidth, totalHeight }) {
         super({ dirPath, fileName, sheetName, totalWidth, totalHeight: Math.max(totalHeight, MIN_ROW_NUM) });
-        this.colWidths = [10, 34, 7, 24, 15, 17, 24, 14, 16, 25];
+        this.colWidths = [10, 26.5, 5, 15, 15, 13, 18, 18.5, 8, 13];
         this.setColsWidth();
         this.setRowsHeight();
         this.setHeader();
@@ -70,7 +71,7 @@ class ShopEnteringExcel extends Excel {
                 tourGuide
             } = tour;
 
-            this.setCell(3 + idx, 1, '', {horizontallyAlign: CENTER, verticallyAlign: CENTER});
+            this.setCell(3 + idx, 1, 'A', {horizontallyAlign: LEFT, verticallyAlign: CENTER});
             this.setCell(3 + idx, 2, tourId, {
                 horizontallyAlign: CENTER,
                 verticallyAlign: CENTER,

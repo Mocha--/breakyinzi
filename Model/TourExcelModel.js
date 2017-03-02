@@ -36,6 +36,7 @@ const GROUP_ID_COL_NUMBER = 1;
  */
 const CENTER = 'center';
 const BOTTOM = 'bottom';
+const LEFT = 'left';
 const TRUE = 'true';
 const ROW_HEIGHT = 21;
 const DRIVER_GUY_STRING = 'D/G';
@@ -150,7 +151,7 @@ class TourExcel extends Excel {
                 mergeTo: {row: 5 + 3 * idx, col: 10}
             });
             this.setCell(3 + 3 * idx, 11, FIRST_DAY_TRIP_STRING, {
-                horizontallyAlign: CENTER,
+                horizontallyAlign: LEFT,
                 verticallyAlign: CENTER
             });
             this.setCell(3 + 3 * idx, 12, '', {

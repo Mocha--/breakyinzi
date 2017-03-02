@@ -33,7 +33,7 @@ shopEnteringTableRouter
                     totalWidth: 10,
                     totalHeight: 2 + filteredTours.length
                 });
-                shopEnteringExcel.setTitle(date, moment(date).format('dddd'));
+                shopEnteringExcel.setTitle(moment(date).format('DD/MM/YYYY'), moment(date).format('dddd'));
                 shopEnteringExcel.load(filteredTours);
                 return shopEnteringExcel.save();
             })

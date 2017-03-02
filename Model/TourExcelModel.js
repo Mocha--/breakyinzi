@@ -71,8 +71,7 @@ class TourExcel extends Excel {
     setTitle(date, weekday) {
         this.setCell(TITLE_ROW_NUMBER, 4, DATE_STRING, {verticallyAlign: CENTER});
         this.setCell(TITLE_ROW_NUMBER, 7, date, {verticallyAlign: CENTER});
-        this.setCell(TITLE_ROW_NUMBER, 10, WEEKDAY_STRING, {verticallyAlign: CENTER});
-        this.setCell(TITLE_ROW_NUMBER, 11, weekday, {verticallyAlign: CENTER});
+        this.setCell(TITLE_ROW_NUMBER, 10, weekday, {verticallyAlign: CENTER});
     }
 
     setHeader() {

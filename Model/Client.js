@@ -53,14 +53,18 @@ class Client {
 
                     return new Tour({
                         tourGuide: rowData[0],
+                        phone: rowData[1],
                         groupNumber: $(rowData[2]).html(),
                         arriveDate: moment(rowData[3], 'YYYY-M-DD').format('YYYY-MM-DD'),
+                        arriveCity: rowData[5],
                         arriveFlightNum: rowData[6],
                         arriveFlightTime: rowData[7],
+                        depatureCity: rowData[8],
+                        depatureDate: rowData[9],
                         depatureFlightNum: rowData[10],
                         depatureFlightTime: rowData[11],
-                        depatureDate: rowData[9],
-                        touristNum: parseInt(rowData[12]) - 1
+                        touristNum: parseInt(rowData[12]) - 1,
+                        operator: rowData[13]
                     });
                 }));
             })

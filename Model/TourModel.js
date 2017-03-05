@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 class Tour {
-    constructor({tourGuide, groupNumber, arriveDate, arriveFlightNum, arriveFlightTime, depatureFlightNum, depatureFlightTime, depatureDate, touristNum}) {
+    constructor({tourGuide, groupNumber, arriveDate, arriveFlightNum, arriveFlightTime, depatureFlightNum, depatureFlightTime, depatureDate, touristNum, phone, arriveCity, depatureCity, operator}) {
         this.tourGuide = tourGuide;
         this.groupNumber = groupNumber;
         this.arriveDate = arriveDate;
@@ -11,6 +11,10 @@ class Tour {
         this.depatureFlightTime = depatureFlightTime;
         this.depatureDate = this.arriveFlightTime.trim().length >= 13 ? arriveDate : depatureDate;
         this.touristNum = touristNum;
+        this.phone = phone;
+        this.arriveCity = arriveCity;
+        this.depatureCity = depatureCity;
+        this.operator = operator;
     }
 
     get shopEnteringDate() {

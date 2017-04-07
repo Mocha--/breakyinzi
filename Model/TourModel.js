@@ -9,7 +9,7 @@ class Tour {
         this.arriveFlightTime = arriveFlightTime;
         this.depatureFlightNum = depatureFlightNum;
         this.depatureFlightTime = depatureFlightTime;
-        this.depatureDate = this.arriveFlightTime.trim().length >= 13 ? arriveDate : depatureDate;
+        this.depatureDate = this.arriveFlightNum.toLowerCase().includes('qf030') && this.arriveFlightNum.toLowerCase().includes('qf155') ? arriveDate : depatureDate;
         this.touristNum = touristNum;
         this.phone = phone;
         this.arriveCity = arriveCity;
@@ -18,7 +18,7 @@ class Tour {
     }
 
     get shopEnteringDate() {
-        return this.arriveFlightTime.trim().length >= 13 ? this.arriveDate
+        return this.arriveFlightNum.toLowerCase().includes('qf030') && this.arriveFlightNum.toLowerCase().includes('qf155') ? this.arriveDate
             : parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 12 ? moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD')
             : moment(this.depatureDate).format('YYYY-MM-DD');
     }

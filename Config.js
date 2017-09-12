@@ -1,4 +1,4 @@
-const BASE_URL = 'http://nzsystem.yinzisoft.com';
+const BASE_URL = 'http://s681851350.online-home.ca';
 const LOGIN_URL = `${BASE_URL}/shenaus/web/login.asp`;
 const TOURS_URL = `${BASE_URL}/shenaus/report/tourguild.asp`;
 const USERNAME = 'Aumel';

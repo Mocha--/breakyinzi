@@ -19,7 +19,7 @@ class Tour {
 
     get shopEnteringDate() {
         return this.arriveFlightNum.toLowerCase().includes('qf030') && this.arriveFlightNum.toLowerCase().includes('qf155') ? this.arriveDate
-            : parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 12 ? moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD')
+            : parseInt(this.depatureFlightTime.trim().slice(0, 2)) <= 14 ? moment(this.depatureDate).subtract(1, 'd').format('YYYY-MM-DD')
             : moment(this.depatureDate).format('YYYY-MM-DD');
     }
 
